@@ -13,9 +13,8 @@ class MongoDb {
 	static CONNECT(): Promise<Db> {
 		if (this.db) {
 			return Promise.resolve(this.db);
-
 		} else {
-			return MongoClient.connect(this.uri, { useNewUrlParser: true }).then(async (client) => {
+			return MongoClient.connect(this.uri).then(async (client) => {
 				this.connection = client;
 				this.db = client.db(this.dbName);
 				await collectionManagement(this.db);

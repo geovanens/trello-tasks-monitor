@@ -39,6 +39,9 @@
             "@app/*": [
                 "src/*"
             ],
+            "@controllers/*": [
+                "controllers/*"
+            ],
             "@interfaces": [
                 "interfaces"
             ],
