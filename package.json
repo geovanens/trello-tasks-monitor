@@ -1,0 +1,24 @@
+{
+  "name": "trello-tasks-monitor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ecosystem.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geovanens/trello-tasks-monitor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geovanens/trello-tasks-monitor/issues"
+  },
+  "homepage": "https://github.com/geovanens/trello-tasks-monitor#readme",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "mongodb": "^4.11.0"
+  }
+}
