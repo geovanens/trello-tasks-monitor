@@ -1,1 +1,6 @@
 ecosystem.config.js
+
+node_modules/
+
+
+.ecosystem.config.js

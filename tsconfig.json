@@ -1,0 +1,69 @@
+{
+    "compilerOptions": {
+        "plugins": [
+            {
+                "name": "tslint-language-service-ts3"
+            }
+        ],
+        "target": "es6",
+        "module": "commonJS",
+        "lib": [
+            "dom",
+            "es2017"
+        ],
+        "outDir": "lib",
+        "strict": true,
+        "noImplicitThis": false,
+        "noUnusedParameters": true,
+        "allowSyntheticDefaultImports": false,
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "declaration": false,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "noEmitOnError": true,
+        "noImplicitReturns": true,
+        "noImplicitAny": false,
+        "strictNullChecks": true,
+        "alwaysStrict": true,
+        "noUnusedLocals": true,
+        "typeRoots": [
+            "../node_modules/@types"
+        ],
+        "types": [
+            "node",
+        ],
+        "moduleResolution": "node",
+        "baseUrl": "./src",
+        "paths": {
+            "@app/*": [
+                "src/*"
+            ],
+            "@controllers/*": [
+                "controllers/*"
+            ],
+            "@interfaces": [
+                "interfaces"
+            ],
+            "@server/*": [
+                "server/*"
+            ],
+            "@models/*": [
+                "models/*"
+            ],
+        },
+        "watch": false
+    },
+    "defaultSeverity": "error",
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "test",
+        "**/lib/*",
+        "build"
+    ],
+    "compileOnSave": true,
+    "buildOnSave": true
+}
