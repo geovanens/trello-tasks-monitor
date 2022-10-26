@@ -1,6 +1,6 @@
-import { collectionName, User } from "@interfaces";
-import MongoDb from "@models/mongoDb";
-import { now } from "helpers/date";
+import { collectionName, User } from "../interfaces";
+import MongoDb from "../models/mongoDb";
+import { now } from "../helpers/date";
 
 const USER_COLLECTION = MongoDb.db.collection(collectionName.USERS);
 

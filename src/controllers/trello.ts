@@ -1,11 +1,7 @@
-import { collectionName, TrelloAction } from "@interfaces";
-import MongoDb from "@models/mongoDb";
+import { collectionName, TrelloAction } from "../interfaces";
+import MongoDb from "../models/mongoDb";
 import { Request, Response } from "express";
 import axios from "axios";
-
-const COLLECTION_CARDS = MongoDb.db.collection(collectionName.CARDS);
-const COLLECTION_USERS = MongoDb.db.collection(collectionName.USERS);
-const COLLECTION_LISTS = MongoDb.db.collection(collectionName.LISTS);
 
 const TOKEN = process.env.TRELLO_TOKEN;
 const KEY = process.env.TRELLO_KEY;
@@ -50,7 +46,8 @@ async function getUser(id: string) {
 }
 
 async function updateCard(id: string) {
-    const card = getCard(id);
+    const COLLECTION_CARDS = MongoDb.db.collection(collectionName.CARDS);
+    const card = await getCard(id);
     const query = {id};
     const update = { $set: card };
     const options = { upsert: true };
@@ -59,6 +56,7 @@ async function updateCard(id: string) {
 }
 
 async function updateUsers(ids: string[]) {
+    const COLLECTION_USERS = MongoDb.db.collection(collectionName.USERS);
     const dbMembers = await COLLECTION_USERS.find({id: {$in: ids}}).toArray();
     const idDbMembers = dbMembers.map(e => e.id);
     const remaining = ids.filter(id => !idDbMembers.includes(id));
@@ -69,6 +67,7 @@ async function updateUsers(ids: string[]) {
 }
 
 async function updateLists(id: string) {
+    const COLLECTION_LISTS = MongoDb.db.collection(collectionName.LISTS);
     const list = getList(id);
     const query = {id};
     const update = { $set: list };
@@ -78,6 +77,7 @@ async function updateLists(id: string) {
 
 
 async function saveData(request: Request, response: Response) {
+    const COLLECTION_CARDS = MongoDb.db.collection(collectionName.CARDS);
     const action: TrelloAction = request.body.action;
     const acceptedTypes = ['addMemberToCard', 'removeMemberFromCard', "createCard", "deleteCard", "updateCard"];
     if (acceptedTypes.includes(action?.type)) {
