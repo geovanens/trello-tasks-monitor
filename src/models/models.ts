@@ -1,5 +1,5 @@
 import { Collection } from '@interfaces';
-import MongoDb from '@models/mongodb';
+import MongoDb from './mongodb';
 
 function findOne(collection: Collection, filter: any) {
 	return MongoDb.db.collection(collection).findOne(filter, { projection: { _id: 0 } });

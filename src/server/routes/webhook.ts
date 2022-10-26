@@ -1,4 +1,4 @@
-import { updateTask } from '../../controllers/trello'
+import { saveData } from '../../controllers/trello'
 import { Router } from 'express';
 
 const router = Router();
@@ -8,7 +8,7 @@ router.get('/webhook', (_req, res) => {
     res.sendStatus(200); 
 });
 
-router.post('/webhook',  updateTask);
+router.post('/webhook',  saveData);
 
 
 export default router;

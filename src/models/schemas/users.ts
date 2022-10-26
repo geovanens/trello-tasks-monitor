@@ -28,6 +28,14 @@ const schema = {
 			type: 'string',
 			description: 'username',
 		},
+		working: {
+			type: 'boolean',
+			description: 'in working',
+		},
+		created: {
+			type: 'string',
+			description: 'date created',
+		}
 	},
 };
 

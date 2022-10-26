@@ -4,6 +4,7 @@ export enum collectionName {
     USERS = 'users',
     CARDS = 'cards',
     TASKS = 'tasks',
+    LISTS = 'lists'
 }
 
 export interface User {
@@ -12,6 +13,8 @@ export interface User {
     avatarUrl: string;
     fullName: string;
     username: string;
+    working: boolean;
+    created: string;
 }
 
 export interface Task {
